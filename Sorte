@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🎰 Slot Cassino</title>
+    <style>
+        body {
+            background: black;
+            color: gold;
+            text-align: center;
+            font-family: Arial;
+        }
+        h1 {
+            margin-top: 30px;
+        }
+        .slot {
+            font-size: 60px;
+            margin: 30px;
+        }
+        button {
+            font-size: 20px;
+            padding: 15px 30px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🎰 SLOT CASSINO 🎰</h1>
+
+<div class="slot" id="resultado">
+    🐯 | 🐯 | 🐯
+</div>
+
+<h2 id="mensagem">Clique em girar</h2>
+
+<button onclick="girar()">GIRAR 🎡</button>
+
+<script>
+function girar() {
+    let simbolos = ["🐯","💎","7️⃣","🍀","🔥"];
+
+    let r1 = simbolos[Math.floor(Math.random() * simbolos.length)];
+    let r2 = simbolos[Math.floor(Math.random() * simbolos.length)];
+    let r3 = simbolos[Math.floor(Math.random() * simbolos.length)];
+
+    document.getElementById("resultado").innerHTML = r1 + " | " + r2 + " | " + r3;
+
+    if (r1 === r2 && r2 === r3) {
+        document.getElementById("mensagem").innerHTML = "🎉 JACKPOT!";
+    } else if (r1 === r2 || r2 === r3 || r1 === r3) {
+        document.getElementById("mensagem").innerHTML = "✨ Quase!";
+    } else {
+        document.getElementById("mensagem").innerHTML = "❌ Tente novamente";
+    }
+}
+</script>
+
+</body>
+</html>
